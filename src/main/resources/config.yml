@@ -1,0 +1,31 @@
+#
+#
+# Coded upon request.
+# Programmer: iXeriox
+#
+
+PVEToggle:
+  #This is the message users will see when using /pve Default: '&BPVE has been toggled {status}' (On/Off)
+  togglemsg: '&BYour PVE status is now: {status}'
+  #permission for use; To allow users to use /pve Default 'PVEToggle.allow'
+  permission_touse: 'PVEToggle.allow'
+  #Permission needed for /pve reload Default 'PVEToggle.admin'
+  permission_toreload: 'PVEToggle.admin'
+  #Permission needed to use /pve admin Default 'PVEToggle.admin'
+  permission_foradmin: 'PVEToggle.admin'
+  #reloadmsg is.. Obvious! Default '&BRELOADING'
+  reloadmsg: '&BRELOADING!'
+  #This will show additional messages confirming the use of the plugin! as well as if it's working! Server side messages!
+  debug-mode: false
+  #no_perms..  Default: '&BYou do not have the required permissions!'
+  no_perms: '&BYou do not have the required permissions!'
+  #StopMobDamage - This will block and show the additional below message to any user trying to damage NPC's whilst PVE is off!
+  #stopmobdmg: Default: False
+  stopmobdmg: false
+  #customStatusOn -- If you want colors or different words used for selected statuses. . Edit these!
+  customStatusOn: '&2Enabled'
+  customStatusOff: '&4Disabled'
+  #npc_attack_message: false
+  npc_attack_message: false
+  # ----------------- DO NOT MODIFY ANYTHING BELOW THIS LINE! -------------------
+  users:
