@@ -26,14 +26,37 @@ public final class PVEToggleV2 extends JavaPlugin {
         return getConfig().getString(path);
     }
     
+    public boolean hasUpdate(){
+        try {
+            java.net.URL url = new java.net.URL("https://api.spigotmc.org/legacy/update.php?resource=67738");
+            java.net.HttpURLConnection connection = (java.net.HttpURLConnection) url.openConnection();
+            connection.setRequestMethod("GET");
+            connection.setConnectTimeout(5000);
+            connection.setReadTimeout(5000);
+    
+            try (java.io.BufferedReader reader = new java.io.BufferedReader(new java.io.InputStreamReader(connection.getInputStream()))) {
+                String latestVersion = reader.readLine();
+                return !getDescription().getVersion().equalsIgnoreCase(latestVersion);
+            }
+        } catch (Exception e) {
+            write("Failed to check for updates: " + e.getMessage(), "UpdateChecker");
+            return false;
+        }
+    }
+    
 
 
     @Override
     public void onEnable() {
         write("Plugin enabled", "Event");
+        write("Version " + getDescription().getVersion(), "Event");
+        if (hasUpdate()) {
+            getLogger().warning("[Updator] -> A new version of PVEToggle is available!");
+        }
+        write("Loading config..", "Event");
         if (!getDataFolder().exists()) {
             saveDefaultConfig();
-            write("Config file created", "Event");
+            write("Config not found, created new one, please edit accordingly.", "Event");
         }
         instance = this;
         events = new Events(this);
