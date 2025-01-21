@@ -21,18 +21,26 @@ public final class PVEToggleV2 extends JavaPlugin {
     public void write(String msg, String label){
         getLogger().info("[" + label + "] -> " + msg);
     }
+
+    public String getConfigurationValue(String path){
+        return getConfig().getString(path);
+    }
     
 
 
     @Override
     public void onEnable() {
         write("Plugin enabled", "Event");
+        if (!getDataFolder().exists()) {
+            saveDefaultConfig();
+            write("Config file created", "Event");
+        }
         instance = this;
         events = new Events(this);
         commands = new Commands(this);
         getCommand("pve").setExecutor(commands);
-
         getServer().getPluginManager().registerEvents(events, this);
+
     }
 
     @Override

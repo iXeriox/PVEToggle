@@ -1,0 +1,46 @@
+# PVE TOGGLE V2
+# Created by: iXeriox
+# Configuration Settings
+
+# Debug Mode Settings
+debug-mode:
+  enabled: false # Set to true to enable debug mode
+
+# Language Settings
+# Commands Help
+help-command:
+  commands:
+    - '&l&b• PVEToggleV2 commands •'
+    - '&a -> /pve toggle - Toggle PVE mode'
+    - '&a -> /pve status - Check PVE mode status'
+messages:
+  pve-enabled: '&a-> You are now in PVE mode. Mobs will now target/attack you.'
+  pve-disabled: '&c-> You are now out of PVE mode. Mobs won''t target/attack you.'
+  combat-error: '&c-> You cannot toggle PVE mode while in combat. Please wait for your combat to end.'
+  status-enabled: '&a-> You are in PVE mode. Mobs will target/attack you.'
+  status-disabled: '&c-> You are out of PVE mode. Mobs will not target/attack you.'
+  invalid-command: '&lInvalid command. Try /pve toggle or /pve status or /pve help'
+  config-reloaded: '&aConfig reloaded.'
+bad-permissions:
+  messages:
+    no-permission-toggle: '&c-> You do not have permission to toggle PVE mode.'
+    no-permission-status: '&c-> You do not have permission to view PVE mode status.'
+    no-permission-help: '&c-> You do not have permission to access the help menu.'
+    no-permission-reload: '&cYou do not have permission to reload the config.'
+permissions:
+  default:
+    - pvetoggle.pve-toggle
+    - pvetoggle.pve-status
+    - pvetoggle.pve-help
+  groups:
+    user:
+      permissions:
+        - pvetoggle.pve-toggle
+        - pvetoggle.pve-status
+        - pvetoggle.pve-help
+    admin:
+      permissions:
+        - pvetoggle.*
+    mod:
+      permissions:
+        - pvetoggle.pve-reload

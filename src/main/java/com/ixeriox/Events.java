@@ -16,10 +16,12 @@ import static com.ixeriox.PVEToggleV2.instance;
 public class Events implements Listener {
 
     private final HashMap<UUID, Long> combatTracker = new HashMap<>();
+    private final boolean debugMode;
 
     public Events(PVEToggleV2 instance) {
         instance.write("Events registered", "Event");
         instance.getServer().getPluginManager().registerEvents(this, instance);
+        this.debugMode = Boolean.parseBoolean(instance.getConfigurationValue("debug-mode.enabled"));
     }
 
     // Check if a player is under attack or has recently been in combat
@@ -39,7 +41,8 @@ public class Events implements Listener {
     @EventHandler
     public void onEntityTargetEvent(EntityTargetEvent event) {
         if (event.getTarget() instanceof Player player && !(event.getEntity() instanceof Player) && PVEToggleV2.isToggled(player)) {
-//            instance.write("Player " + player.getName() + " is in PVE mode; block", "onEntityTargetEvent");
+            if (debugMode)
+                instance.write("Player " + player.getName() + " is in PVE mode; block", "onEntityTargetEvent");
             event.setCancelled(true);
             event.setTarget(null);
         }
@@ -49,7 +52,8 @@ public class Events implements Listener {
     public void onEntityTargetLiving(EntityTargetLivingEntityEvent event) {
         Entity entity = event.getTarget();
         if (entity instanceof Player player && PVEToggleV2.isToggled(player)) {
-//            instance.write("Player " + player.getName() + " is in PVE mode; block", "EntityTargetLivingEvent");
+            if (debugMode)
+                instance.write("Player " + player.getName() + " is in PVE mode; block", "EntityTargetLivingEvent");
             event.setCancelled(true);
             event.setTarget(null);
         }
@@ -66,7 +70,8 @@ public class Events implements Listener {
 
         if (dmgrIsPlayer && PVEToggleV2.isToggled((Player) dmgr) || entIsPlayer && PVEToggleV2.isToggled((Player) ent)) {
             Player player = (Player) (dmgrIsPlayer ? dmgr : ent);
-//            instance.write("Player " + player.getName() + " is in PVE mode; block", "EntityDamageByEntityEvent");
+            if (debugMode)
+                instance.write("Player " + player.getName() + " is in PVE mode; block", "EntityDamageByEntityEvent");
             event.setCancelled(true);
         }
 
