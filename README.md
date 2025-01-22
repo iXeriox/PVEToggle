@@ -21,7 +21,6 @@ Features:
    ```bash
    git clone https://github.com/iXeriox/PVEToggle.git
 Open the project in your preferred IDE (e.g., IntelliJ IDEA, Eclipse).
-Modify the plugin.yml file with your plugin's name, version, and description.
 </details>
 
 <details> <summary>## Building the Plugin</summary>
