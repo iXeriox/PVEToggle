@@ -9,19 +9,6 @@ Features:
 ---
 
 <details>
-<summary>## Introduction</summary>
-
-This template provides:
-- A clean and well-organised project structure.
-- Command examples to help you get started.
-- Configuration support for Bukkit/Spigot plugins.
-- Tools and setup for GitHub readiness.
-
-</details>
-
----
-
-<details>
 <summary>## Getting Started</summary>
 
 ### Prerequisites
@@ -44,19 +31,6 @@ mvn clean package
 The generated .jar file will be located in the target/ directory.
 </details>
 
-<details> <summary>## Testing </summary>
-Copy the generated .jar file into your server's plugins folder.
-Start or restart your server.
-Test the example command:
-Use /example in-game to see a response from the plugin.
-</details>
-
-<details> <summary>## Customisation</summary>
-Main Class: Modify the main plugin logic in src/main/java/com/example/plugin/TemplatePlugin.java.
-Commands: Add new commands by creating classes that implement CommandExecutor and registering them in the onEnable() method.
-Event Listeners: Add listeners by creating classes that implement Listener and registering them in onEnable().
-</details>
-
 <details> <summary>## Contributing</summary>
 Feel free to fork this repository and make it your own! Contributions are welcome through pull requests.
 
@@ -65,4 +39,4 @@ Feel free to fork this repository and make it your own! Contributions are welcom
 <details> <summary>## License</summary>
 This project is licensed under the MIT License. See the LICENSE file for details.
 
-</details> ```
+</details>
