@@ -1,7 +1,11 @@
 # PVEToggle V2
 
-Welcome to the **Minecraft Plugin Template**! This repository provides a clean starting point for developing Bukkit/Spigot plugins for Minecraft servers.
+Welcome to the Git of **PVEToggle**! This repository is a complete rewrite of the popular PVEToggle; This version provides a smoother, cleaner and uncluttered approach at handling mobs at your own command.
 
+Features:
+
+- Permission based commands.
+- Combat sequencing (Unable to toggle in combat or up to 10 seconds after)
 ---
 
 <details>
