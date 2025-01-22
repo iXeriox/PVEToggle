@@ -1,4 +1,4 @@
-# Minecraft Plugin Template
+# PVEToggle V2
 
 Welcome to the **Minecraft Plugin Template**! This repository provides a clean starting point for developing Bukkit/Spigot plugins for Minecraft servers.
 
